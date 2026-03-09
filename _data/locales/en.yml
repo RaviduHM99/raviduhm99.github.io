@@ -11,10 +11,11 @@ layout:
 tabs:
   # format: <filename_without_extension>: <value>
   home: Home
-  categories: Categories
+  blogs: Blog
+  projects: Projects
+  publications: Publications
   tags: Tags
   archives: Archives
-  about: About
 
 # the text displayed in the search bar & search results
 search:
