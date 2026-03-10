@@ -138,3 +138,107 @@
     }
   }
 } /* #archives */
+
+html[data-mode='light'] {
+  #archives {
+    ul li:nth-child(odd) {
+      background-color: #eef2f7;
+      background-image: linear-gradient(
+        to left,
+        #f8fafc,
+        #eef2f7,
+        #eef2f7,
+        #eef2f7,
+        #f8fafc
+      );
+      border-radius: 0.7rem;
+    }
+
+    ul li {
+      color: #374151;
+    }
+
+    .date {
+      color: #4b5563;
+
+      &.month {
+        color: #4b5563 !important;
+      }
+    }
+
+    a {
+      color: #1f2937;
+    }
+  }
+}
+
+html[data-mode='dark'] {
+  #archives {
+    ul li:nth-child(odd) {
+      background-color: #2b3544;
+      background-image: linear-gradient(
+        to left,
+        #1f2937,
+        #2b3544,
+        #2b3544,
+        #2b3544,
+        #1f2937
+      );
+      border-radius: 0.7rem;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-mode='dark']) {
+    #archives {
+      ul li:nth-child(odd) {
+        background-color: #eef2f7;
+        background-image: linear-gradient(
+          to left,
+          #f8fafc,
+          #eef2f7,
+          #eef2f7,
+          #eef2f7,
+          #f8fafc
+        );
+        border-radius: 0.7rem;
+      }
+
+      ul li {
+        color: #374151;
+      }
+
+      .date {
+        color: #4b5563;
+
+        &.month {
+          color: #4b5563 !important;
+        }
+      }
+
+      a {
+        color: #1f2937;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode='light']) {
+    #archives {
+      ul li:nth-child(odd) {
+        background-color: #2b3544;
+        background-image: linear-gradient(
+          to left,
+          #1f2937,
+          #2b3544,
+          #2b3544,
+          #2b3544,
+          #1f2937
+        );
+        border-radius: 0.7rem;
+      }
+    }
+  }
+}
