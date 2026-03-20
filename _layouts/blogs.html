@@ -20,7 +20,7 @@ layout: default
   .card-wrapper {
     border-radius: 16px;
     overflow: hidden;
-    border: none;
+    border: 1px solid rgba(148, 163, 184, 0.24);
     background-color: var(--card-bg);
     position: relative;
     transition: all 0.3s ease;
@@ -29,6 +29,7 @@ layout: default
   .card-wrapper:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: var(--link-color);
     background-color: var(--card-hover-bg, rgba(255, 255, 255, 0.08));
   }
 
@@ -115,7 +116,7 @@ layout: default
   }
 
   html[data-mode='light'] .card-wrapper {
-    border: 1px solid rgba(15, 23, 42, 0.16);
+    border-color: rgba(15, 23, 42, 0.14);
   }
 
   html[data-mode='light'] .card-title {
@@ -131,7 +132,7 @@ layout: default
 
   @media (prefers-color-scheme: light) {
     html:not([data-mode='dark']) .card-wrapper {
-      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-color: rgba(15, 23, 42, 0.14);
     }
 
     html:not([data-mode='dark']) .card-title {
