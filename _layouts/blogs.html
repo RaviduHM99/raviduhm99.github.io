@@ -52,6 +52,16 @@ layout: default
   .post-preview {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+  }
+
+  .post-title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-title-link:hover {
+    color: var(--link-color);
   }
 
   .card-wrapper .post-preview {
@@ -149,7 +159,7 @@ layout: default
               <img src="{{ post.image.path | relative_url }}" alt="{{ post.title }}" />
             </div>
           {% endif %}
-          <a class="post-preview row g-0 flex-md-row-reverse" href="{{ post.url | relative_url }}">
+          <div class="post-preview row g-0 flex-md-row-reverse" data-href="{{ post.url | relative_url }}">
             {% if post.image %}
               <div class="col-md-5">
                 <img src="{{ post.image.path | relative_url }}" alt="{{ post.title }}"{% if post.image.lqip %} lqip="{{ post.image.lqip }}"{% endif %}>
@@ -157,7 +167,9 @@ layout: default
             {% endif %}
             <div class="col-md-7">
               <div class="card-body d-flex flex-column">
-                <h2 class="card-title my-2 mt-md-0">{{ post.title }}</h2>
+                <h2 class="card-title my-2 mt-md-0">
+                  <a class="post-title-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
                 <div class="card-text content mt-0 mb-3">
                   <p>{{ post.description | strip_html | truncatewords: 30 }}</p>
                 </div>
@@ -174,7 +186,7 @@ layout: default
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </article>
       {% endfor %}
     {% endif %}
@@ -187,7 +199,7 @@ layout: default
               <img src="{{ post.image.path | relative_url }}" alt="{{ post.title }}" />
             </div>
           {% endif %}
-          <a class="post-preview row g-0 flex-md-row-reverse" href="{{ post.url | relative_url }}">
+          <div class="post-preview row g-0 flex-md-row-reverse" data-href="{{ post.url | relative_url }}">
             {% if post.image %}
               <div class="col-md-5">
                 <img src="{{ post.image.path | relative_url }}" alt="{{ post.title }}"{% if post.image.lqip %} lqip="{{ post.image.lqip }}"{% endif %}>
@@ -195,7 +207,9 @@ layout: default
             {% endif %}
             <div class="col-md-7">
               <div class="card-body d-flex flex-column">
-                <h2 class="card-title my-2 mt-md-0">{{ post.title }}</h2>
+                <h2 class="card-title my-2 mt-md-0">
+                  <a class="post-title-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
                 <div class="card-text content mt-0 mb-3">
                   <p>{{ post.description | strip_html | truncatewords: 30 }}</p>
                 </div>
@@ -212,7 +226,7 @@ layout: default
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </article>
         {% assign posts = posts | push: post %}
       {% endfor %}
@@ -223,3 +237,19 @@ layout: default
     {% endif %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const previews = document.querySelectorAll('.post-preview[data-href]');
+
+    previews.forEach((preview) => {
+      preview.addEventListener('click', (event) => {
+        if (event.target.closest('a, button')) {
+          return;
+        }
+
+        window.location.href = preview.dataset.href;
+      });
+    });
+  });
+</script>
