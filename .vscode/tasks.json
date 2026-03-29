@@ -16,6 +16,16 @@
       "label": "Build Jekyll Site",
       "type": "shell",
       "command": "./tools/test.sh",
+      "windows": {
+        "command": "powershell",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "./tools/test.ps1"
+        ]
+      },
       "group": {
         "kind": "build"
       },

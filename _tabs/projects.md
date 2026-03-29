@@ -1,7 +1,7 @@
 ---
 layout: blogs
 content_type: projects
-icon: fas fa-project-diagram
+icon: fas fa-lightbulb
 order: 3
 ---
 

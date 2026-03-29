@@ -1,6 +1,6 @@
 ---
 title: Certifications
 layout: certifications
-icon: fas fa-certificate
+icon: fas fa-graduation-cap
 order: 5
 ---
